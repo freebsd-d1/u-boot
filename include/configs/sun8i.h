@@ -14,7 +14,7 @@
 
 #include <asm/arch/cpu.h>
 
-#ifdef SUNXI_SRAM_A2_SIZE
+#if defined(SUNXI_SRAM_A2_SIZE) && defined(CONFIG_ARMV7_SECURE_BASE)
 #define SUNXI_RESUME_BASE		(CONFIG_ARMV7_SECURE_BASE + \
 					 CONFIG_ARMV7_SECURE_MAX_SIZE)
 #define SUNXI_RESUME_SIZE		1024
