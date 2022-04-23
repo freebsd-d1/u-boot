@@ -38,6 +38,7 @@
 # Top-level generic files
 #
 fit-dtb.blob*
+/itb.*
 /MLO*
 /SPL*
 /System.map

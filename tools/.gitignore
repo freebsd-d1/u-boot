@@ -2,6 +2,7 @@
 /atmel_pmecc_params
 /bin2header
 /bmp_logo
+/boot/
 /common/
 /dumpimage
 /easylogo/easylogo
