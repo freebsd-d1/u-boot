@@ -132,7 +132,7 @@
 			clock-names = "cfg", "dsp";
 			resets = <&ccu RST_BUS_DSP_CFG>,
 				 <&ccu RST_BUS_DSP_DBG>,
-				 <&ccu RST_DSP>;
+				 <&ccu RST_BUS_DSP>;
 			allwinner,sram = <&dsp_sram 1>;
 			interrupts = <136 IRQ_TYPE_LEVEL_HIGH>,
 				     <137 IRQ_TYPE_LEVEL_HIGH>;
@@ -313,11 +313,11 @@
 		ir_tx: irled@2003000 {
 			compatible = "allwinner,sun20i-d1-ir-tx";
 			reg = <0x2003000 0x400>;
-			clocks = <&ccu CLK_BUS_IR_TX>,
+			clocks = <&ccu CLK_BUS_IRTX>,
 				 <&osc24M>,
-				 <&ccu CLK_IR_TX>;
+				 <&ccu CLK_IRTX>;
 			clock-names = "bus", "pclk", "mclk";
-			resets = <&ccu RST_BUS_IR_TX>;
+			resets = <&ccu RST_BUS_IRTX>;
 			dmas = <&dma 13>;
 			dma-names = "tx";
 			interrupts = <35 IRQ_TYPE_LEVEL_HIGH>;
@@ -894,8 +894,8 @@
 			compatible = "allwinner,sun20i-d1-musb",
 				     "allwinner,sun8i-a33-musb";
 			reg = <0x4100000 0x400>;
-			clocks = <&ccu CLK_BUS_OTG>;
-			resets = <&ccu RST_BUS_OTG>;
+			clocks = <&ccu CLK_BUS_OTG0>;
+			resets = <&ccu RST_BUS_OTG0>;
 			dmas = <&dma 30>, <&dma 30>,
 			       <&dma 31>, <&dma 31>,
 			       <&dma 32>, <&dma 32>,
@@ -926,8 +926,8 @@
 				 <&osc24M>;
 			clock-names = "usb0_phy",
 				      "usb1_phy";
-			resets = <&ccu RST_USB_PHY0>,
-				 <&ccu RST_USB_PHY1>;
+			resets = <&ccu RST_USBPHY0>,
+				 <&ccu RST_USBPHY1>;
 			reset-names = "usb0_reset",
 				      "usb1_reset";
 			#phy-cells = <1>;
@@ -940,7 +940,7 @@
 			reg = <0x4101000 0x100>;
 			clocks = <&ccu CLK_BUS_OHCI0>,
 				 <&ccu CLK_BUS_EHCI0>,
-				 <&ccu CLK_USB_OHCI0>;
+				 <&ccu CLK_USB0>;
 			resets = <&ccu RST_BUS_OHCI0>,
 				 <&ccu RST_BUS_EHCI0>;
 			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
@@ -954,7 +954,7 @@
 				     "generic-ohci";
 			reg = <0x4101400 0x100>;
 			clocks = <&ccu CLK_BUS_OHCI0>,
-				 <&ccu CLK_USB_OHCI0>;
+				 <&ccu CLK_USB0>;
 			resets = <&ccu RST_BUS_OHCI0>;
 			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
 			phys = <&usbphy 0>;
@@ -968,7 +968,7 @@
 			reg = <0x4200000 0x100>;
 			clocks = <&ccu CLK_BUS_OHCI1>,
 				 <&ccu CLK_BUS_EHCI1>,
-				 <&ccu CLK_USB_OHCI1>;
+				 <&ccu CLK_USB1>;
 			resets = <&ccu RST_BUS_OHCI1>,
 				 <&ccu RST_BUS_EHCI1>;
 			interrupts = <49 IRQ_TYPE_LEVEL_HIGH>;
@@ -982,7 +982,7 @@
 				     "generic-ohci";
 			reg = <0x4200400 0x100>;
 			clocks = <&ccu CLK_BUS_OHCI1>,
-				 <&ccu CLK_USB_OHCI1>;
+				 <&ccu CLK_USB1>;
 			resets = <&ccu RST_BUS_OHCI1>;
 			interrupts = <50 IRQ_TYPE_LEVEL_HIGH>;
 			phys = <&usbphy 1>;
@@ -1096,9 +1096,9 @@
 			compatible = "allwinner,sun20i-d1-tcon-top";
 			reg = <0x5460000 0x1000>;
 			clocks = <&ccu CLK_BUS_DPSS_TOP>,
-				 <&ccu CLK_TCON_TV>,
+				 <&ccu CLK_TCONTV>,
 				 <&ccu CLK_TVE>,
-				 <&ccu CLK_MIPI_DSI>;
+				 <&ccu CLK_DSI>;
 			clock-names = "bus",
 				      "tcon-tv0",
 				      "tve0",
@@ -1187,11 +1187,11 @@
 		tcon_lcd0: lcd-controller@5461000 {
 			compatible = "allwinner,sun20i-d1-tcon-lcd";
 			reg = <0x5461000 0x1000>;
-			clocks = <&ccu CLK_BUS_TCON_LCD0>,
-				 <&ccu CLK_TCON_LCD0>;
+			clocks = <&ccu CLK_BUS_TCONLCD>,
+				 <&ccu CLK_TCONLCD>;
 			clock-names = "ahb", "tcon-ch0";
 			clock-output-names = "tcon-pixel-clock";
-			resets = <&ccu RST_BUS_TCON_LCD0>,
+			resets = <&ccu RST_BUS_TCONLCD>,
 				 <&ccu RST_BUS_LVDS0>;
 			reset-names = "lcd", "lvds";
 			interrupts = <106 IRQ_TYPE_LEVEL_HIGH>;
@@ -1226,10 +1226,10 @@
 		tcon_tv0: lcd-controller@5470000 {
 			compatible = "allwinner,sun20i-d1-tcon-tv";
 			reg = <0x5470000 0x1000>;
-			clocks = <&ccu CLK_BUS_TCON_TV>,
+			clocks = <&ccu CLK_BUS_TCONTV>,
 				 <&tcon_top CLK_TCON_TOP_TV0>;
 			clock-names = "ahb", "tcon-ch1";
-			resets = <&ccu RST_BUS_TCON_TV>;
+			resets = <&ccu RST_BUS_TCONTV>;
 			reset-names = "lcd";
 			interrupts = <107 IRQ_TYPE_LEVEL_HIGH>;
 
@@ -1374,7 +1374,7 @@
 			clocks = <&osc24M>,
 				 <&rtc CLK_OSC32K>,
 				 <&rtc CLK_IOSC>,
-				 <&ccu CLK_PLL_PERIPH0_DIV3>;
+				 <&ccu CLK_PLL_PERI_DIV3>;
 			clock-names = "hosc", "losc", "iosc", "pll-periph";
 			#clock-cells = <1>;
 			#reset-cells = <1>;

@@ -33,13 +33,13 @@ static struct ccu_clk_gate d1_gates[] = {
 
 	[CLK_BUS_EMAC]		= GATE(0x97c, BIT(0)),
 
-	[CLK_USB_OHCI0]		= GATE(0xa70, BIT(31)),
-	[CLK_USB_OHCI1]		= GATE(0xa74, BIT(31)),
+	[CLK_USB0]		= GATE(0xa70, BIT(31)),
+	[CLK_USB1]		= GATE(0xa74, BIT(31)),
 	[CLK_BUS_OHCI0]		= GATE(0xa8c, BIT(0)),
 	[CLK_BUS_OHCI1]		= GATE(0xa8c, BIT(1)),
 	[CLK_BUS_EHCI0]		= GATE(0xa8c, BIT(4)),
 	[CLK_BUS_EHCI1]		= GATE(0xa8c, BIT(5)),
-	[CLK_BUS_OTG]		= GATE(0xa8c, BIT(8)),
+	[CLK_BUS_OTG0]		= GATE(0xa8c, BIT(8)),
 	[CLK_BUS_LRADC]		= GATE(0xa9c, BIT(0)),
 
 	[CLK_RISCV]		= GATE(0xd04, BIT(31)),
@@ -64,13 +64,13 @@ static struct ccu_reset d1_resets[] = {
 
 	[RST_BUS_EMAC]		= RESET(0x97c, BIT(16)),
 
-	[RST_USB_PHY0]		= RESET(0xa70, BIT(30)),
-	[RST_USB_PHY1]		= RESET(0xa74, BIT(30)),
+	[RST_USBPHY0]		= RESET(0xa70, BIT(30)),
+	[RST_USBPHY1]		= RESET(0xa74, BIT(30)),
 	[RST_BUS_OHCI0]		= RESET(0xa8c, BIT(16)),
 	[RST_BUS_OHCI1]		= RESET(0xa8c, BIT(17)),
 	[RST_BUS_EHCI0]		= RESET(0xa8c, BIT(20)),
 	[RST_BUS_EHCI1]		= RESET(0xa8c, BIT(21)),
-	[RST_BUS_OTG]		= RESET(0xa8c, BIT(24)),
+	[RST_BUS_OTG0]		= RESET(0xa8c, BIT(24)),
 	[RST_BUS_LRADC]		= RESET(0xa9c, BIT(16)),
 };
 

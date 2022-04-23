@@ -7,30 +7,30 @@
 #ifndef _DT_BINDINGS_CLK_SUN20I_D1_CCU_H_
 #define _DT_BINDINGS_CLK_SUN20I_D1_CCU_H_
 
-#define CLK_PLL_CPUX		0
-#define CLK_PLL_DDR0		1
-#define CLK_PLL_PERIPH0_4X	2
-#define CLK_PLL_PERIPH0_2X	3
-#define CLK_PLL_PERIPH0_800M	4
-#define CLK_PLL_PERIPH0		5
-#define CLK_PLL_PERIPH0_DIV3	6
+#define CLK_PLL_CPU		0
+#define CLK_PLL_DDR		1
+#define CLK_PLL_PERI_DIV4	2 // unused
+#define CLK_PLL_PERI_2X		3
+#define CLK_PLL_PERI_800M	4
+#define CLK_PLL_PERI_1X		5
+#define CLK_PLL_PERI_DIV3	6
 #define CLK_PLL_VIDEO0_4X	7
 #define CLK_PLL_VIDEO0_2X	8
-#define CLK_PLL_VIDEO0		9
+#define CLK_PLL_VIDEO0_1X	9
 #define CLK_PLL_VIDEO1_4X	10
 #define CLK_PLL_VIDEO1_2X	11
-#define CLK_PLL_VIDEO1		12
+#define CLK_PLL_VIDEO1_1X	12
 #define CLK_PLL_VE		13
 #define CLK_PLL_AUDIO0_4X	14
 #define CLK_PLL_AUDIO0_2X	15
-#define CLK_PLL_AUDIO0		16
+#define CLK_PLL_AUDIO0_1X	16
 #define CLK_PLL_AUDIO1		17
 #define CLK_PLL_AUDIO1_DIV2	18
 #define CLK_PLL_AUDIO1_DIV5	19
-#define CLK_CPUX		20
-#define CLK_CPUX_AXI		21
-#define CLK_CPUX_APB		22
-#define CLK_PSI_AHB		23
+#define CLK_CPU			20
+#define CLK_CPU_AXI		21
+//#define CLK_CPUX_APB		22 // does not exist
+#define CLK_PSI			23
 #define CLK_APB0		24
 #define CLK_APB1		25
 #define CLK_MBUS		26
@@ -51,7 +51,7 @@
 #define CLK_BUS_SPINLOCK	41
 #define CLK_BUS_HSTIMER		42
 #define CLK_AVS			43
-#define CLK_BUS_DBG		44
+#define CLK_BUS_DBGSYS		44
 #define CLK_BUS_PWM		45
 #define CLK_BUS_IOMMU		46
 #define CLK_DRAM		47
@@ -85,8 +85,8 @@
 #define CLK_BUS_SPI1		75
 #define CLK_EMAC_25M		76
 #define CLK_BUS_EMAC		77
-#define CLK_IR_TX		78
-#define CLK_BUS_IR_TX		79
+#define CLK_IRTX		78
+#define CLK_BUS_IRTX		79
 #define CLK_BUS_GPADC		80
 #define CLK_BUS_THS		81
 #define CLK_I2S0		82
@@ -104,25 +104,25 @@
 #define CLK_AUDIO_DAC		94
 #define CLK_AUDIO_ADC		95
 #define CLK_BUS_AUDIO		96
-#define CLK_USB_OHCI0		97
-#define CLK_USB_OHCI1		98
+#define CLK_USB0		97
+#define CLK_USB1		98
 #define CLK_BUS_OHCI0		99
 #define CLK_BUS_OHCI1		100
 #define CLK_BUS_EHCI0		101
 #define CLK_BUS_EHCI1		102
-#define CLK_BUS_OTG		103
+#define CLK_BUS_OTG0		103
 #define CLK_BUS_LRADC		104
 #define CLK_BUS_DPSS_TOP	105
 #define CLK_HDMI_24M		106
 #define CLK_HDMI_CEC_32K	107
 #define CLK_HDMI_CEC		108
 #define CLK_BUS_HDMI		109
-#define CLK_MIPI_DSI		110
-#define CLK_BUS_MIPI_DSI	111
-#define CLK_TCON_LCD0		112
-#define CLK_BUS_TCON_LCD0	113
-#define CLK_TCON_TV		114
-#define CLK_BUS_TCON_TV		115
+#define CLK_DSI			110
+#define CLK_BUS_DSI		111
+#define CLK_TCONLCD		112
+#define CLK_BUS_TCONLCD		113
+#define CLK_TCONTV		114
+#define CLK_BUS_TCONTV		115
 #define CLK_TVE			116
 #define CLK_BUS_TVE_TOP		117
 #define CLK_BUS_TVE		118
@@ -131,12 +131,12 @@
 #define CLK_BUS_TVD		121
 #define CLK_LEDC		122
 #define CLK_BUS_LEDC		123
-#define CLK_CSI_TOP		124
-#define CLK_CSI_MCLK		125
+#define CLK_CSI			124
+#define CLK_CSI_MASTER		125
 #define CLK_BUS_CSI		126
 #define CLK_TPADC		127
 #define CLK_BUS_TPADC		128
-#define CLK_BUS_TZMA		129
+//#define CLK_BUS_TZMA		129 // does not exist
 #define CLK_DSP			130
 #define CLK_BUS_DSP_CFG		131
 #define CLK_RISCV		132
