@@ -1400,6 +1400,7 @@
 				 <&osc24M>,
 				 <&r_ccu CLK_R_AHB>;
 			clock-names = "bus", "hosc", "ahb";
+			clock-output-names = "osc32k", "osc32k-out", "iosc";
 			#clock-cells = <1>;
 			interrupts = <160 IRQ_TYPE_LEVEL_HIGH>;
 		};
